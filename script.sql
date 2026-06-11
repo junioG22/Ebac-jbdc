@@ -15,7 +15,7 @@ CREATE TABLE Salarios (
     data_pagamento DATE,
 
     FOREIGN KEY (funcionario_id)
-        REFERENCES Funcionarios(id)
+    REFERENCES Funcionarios(id)
 );
 
 INSERT INTO Funcionarios(nome, cargo)
