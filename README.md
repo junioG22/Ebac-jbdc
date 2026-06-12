@@ -1,4 +1,4 @@
-# Ebac-jdbc
+# Ebac-jbdc
 
 Projeto desenvolvido para estudos de integração entre Java e MySQL utilizando JDBC.
 
