@@ -7,16 +7,13 @@ public class UsuarioDAO {
 
     public void inserirUsuario(String nome, String email) {
 
-        String sql =
-                "INSERT INTO usuarios (nome, email) VALUES (?, ?)";
+        String sql = "INSERT INTO usuarios (nome, email) VALUES (?, ?)";
 
         try (
 
-                Connection connection =
-                        ConnectionFactory.conectar();
+                Connection connection = ConnectionFactory.conectar();
 
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(sql)
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
 
         ) {
 
@@ -36,28 +33,21 @@ public class UsuarioDAO {
 
     public void deletarUsuario(String nome) {
 
-        String sql =
-                "DELETE FROM usuarios WHERE nome = ?";
+        String sql = "DELETE FROM usuarios WHERE nome = ?";
 
         try (
 
-                Connection connection =
-                        ConnectionFactory.conectar();
+                Connection connection = ConnectionFactory.conectar();
 
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(sql)
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
 
         ) {
 
             preparedStatement.setString(1, nome);
 
-            int linhasAfetadas =
-                    preparedStatement.executeUpdate();
+            int linhasAfetadas = preparedStatement.executeUpdate();
 
-            System.out.println(
-                    linhasAfetadas +
-                            " usuário deletado."
-            );
+            System.out.println(linhasAfetadas + " usuário deletado.");
 
         } catch (SQLException e) {
 
@@ -67,16 +57,13 @@ public class UsuarioDAO {
 
     public void atualizarEmail(String nome, String novoEmail) {
 
-        String sql =
-                "UPDATE usuarios SET email = ? WHERE nome = ?";
+        String sql = "UPDATE usuarios SET email = ? WHERE nome = ?";
 
         try (
 
-                Connection connection =
-                        ConnectionFactory.conectar();
+                Connection connection = ConnectionFactory.conectar();
 
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(sql)
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
 
         ) {
 
@@ -84,13 +71,9 @@ public class UsuarioDAO {
 
             preparedStatement.setString(2, nome);
 
-            int linhasAfetadas =
-                    preparedStatement.executeUpdate();
+            int linhasAfetadas = preparedStatement.executeUpdate();
 
-            System.out.println(
-                    linhasAfetadas +
-                            " usuário atualizado."
-            );
+            System.out.println(linhasAfetadas + " usuário atualizado.");
 
         } catch (SQLException e) {
 
@@ -104,26 +87,21 @@ public class UsuarioDAO {
 
         try (
 
-                Connection connection =
-                        ConnectionFactory.conectar();
+                Connection connection = ConnectionFactory.conectar();
 
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(sql);
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         ) {
 
-            ResultSet resultSet =
-                    preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
 
                 int id = resultSet.getInt("id");
 
-                String nome =
-                        resultSet.getString("nome");
+                String nome = resultSet.getString("nome");
 
-                String email =
-                        resultSet.getString("email");
+                String email = resultSet.getString("email");
 
                 System.out.println(
                         "ID: " + id +

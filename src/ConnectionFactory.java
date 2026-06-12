@@ -8,7 +8,7 @@ public class ConnectionFactory {
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "julqs23gomes";
+    private static final String PASSWORD = "MINHASENHA";
 
     public static Connection conectar() throws SQLException {
 
