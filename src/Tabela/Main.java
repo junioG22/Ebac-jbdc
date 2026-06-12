@@ -1,4 +1,4 @@
-package TABELA;
+package Tabela;
 
 public class Main {
 
